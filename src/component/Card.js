@@ -7,16 +7,18 @@ import '../component/Card.css';
 function Card(props) {
 
     const [aniToggle,setAniToggle] = useState(false);
+    const [downAni, setDownAni] = useState(false);
     const [socialClassName,setSocialClassName] = useState('card--social');
 
     const toggleAnimationClass = ()=>{
-        socialClassName.includes("animation") ? setSocialClassName(socialClassName.replace(" animation",""))  : setSocialClassName(socialClassName.concat(" animation"))
+        aniToggle ? setSocialClassName(socialClassName.replace(" animation",""))  : setSocialClassName(socialClassName.concat(" animation"))
     }
     const handleToggle = () => {
-        if(socialClassName.includes("animation")){
-            setSocialClassName(socialClassName.concat(" down-animation"))
+        if(aniToggle){
+            setDownAni(true)
+
             setTimeout(()=>{
-                setSocialClassName(socialClassName.replace(" down-animation", ""))
+                setDownAni(false)
             },1000)
         }
         toggleAnimationClass()
@@ -28,22 +30,23 @@ function Card(props) {
         <div className='container'>
             <div className='card'>
                 <div className='card--border'>
-                    <img src={props.img}></img>
+                    <img className="card--img" src={props.img}></img>
                 </div>
                 <h3 className='card--name'>{props.name}</h3>
 
-                <div className={socialClassName} id='card-social' onClick={handleToggle}>
+                <div className={`${socialClassName} ${downAni? "down-animation":""}`} id='card-social' onMouseEnter={handleToggle}>
                     <div className='card--social-control'>
                         <div className='card--social-toggle' id='card-toggle' >
-                        <AddIcon/>
+                            <AddIcon style={{fontSize:"1.25rem"}}/>
                         </div>
-                    </div>
+
                     <span className='card--social-text'>Reach Me</span>
                     <ul className='card--social-list'>
-                        <a href={props.email}>
-                        <LinkedInIcon/>
+                        <a href={props.email} className="card--social-link" target="_blank">
+                            <LinkedInIcon/>
                         </a>
                     </ul>
+                    </div>
                 </div>
             </div>
         </div>

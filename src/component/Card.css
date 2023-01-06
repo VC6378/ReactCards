@@ -5,7 +5,7 @@
 :root {
   /*========== Colors ==========*/
   /*Color mode HSL(hue, saturation, lightness)*/
-  --first-color: hsl(216, 77%, 49%);
+  --first-color: hsl(216, 95%, 25%);
   --first-color-light: hsl(29, 80%, 70%);
   --black-color: hsl(0, 1%, 85%);
   --text-color: hsl(29, 8%, 65%);
@@ -65,17 +65,23 @@ img {
 .card{
   position: relative;
   width: 256px;
-  top: 90px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  /* top: 90px; */
   background-color: var(--black-color);
-  padding: 1.25rem 2rem 3rem;
+  /* padding: 1.25rem 2rem 3rem; */
   border-radius: 1.5rem;
   text-align: center;
   box-shadow: 0 4px 16px hsla(29, 75%, 8%, 0.2);
+  height: 340px;
 }
 
 .card--border img{
-    width: 96px;
+    width: 200px;
     border-radius: 50%;
+    
 }
 
 /* .card--img{
@@ -83,10 +89,10 @@ img {
   border-radius: 50%;
 } */
 .card--border{
-  width: 110px;
-  height: 110px;
+  width: 210px;
+  height: 210px;
   border: 2px solid var( --first-color);
-  border-radius: 50%;                                        
+  border-radius: 50%;                                       
   display: grid;
   place-items: center;
   margin: 0 auto .75rem;
@@ -97,8 +103,6 @@ img {
   font-size: var(--h3-font-size);
   font-weight: 500;
 }
-
-
 
 .card--social{
   width: 200px;
@@ -117,11 +121,14 @@ img {
 
 }
 
+
+
 .card--social-control{
   position: relative;
   transform-origin: 18px 18px;
   transition: transform .45s ease;
   transform: rotate(0deg);
+
 }
 
 .card--social-toggle{
@@ -137,24 +144,22 @@ img {
 }
 
 
+
 .card--social-text{
-  display: block;
   color: var(--black-color);
-  font-size: var(--smaller-font-size);
   font-weight: 500;
-  font-size: 20px;
-  /* text-align: center; */
-  
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  position: absolute;
+  left: 0;
+  right: 0;
+  font-size: 16px;
+  padding-left: 3.5rem;
 }
 
 .card--social-list{
   display: inline-flex;
   column-gap: .75rem;
   transform: rotate(135deg);
-  transform-origin: 18px 17px;
+  transform-origin: 20px 17px;
 }
 
 .card--social-link{
@@ -166,19 +171,21 @@ img {
   border-radius: 50%;
 }
 
-.card--social-text,
 .card--social-list{
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
-  padding-left: 3.1rem;
+  padding-left: 4rem;
 }
 
 .card--social-text{
-  top: .5rem;
+  top: .35rem;
 }
 /* Rotate social */
+
+
+
 
 
 .animation .card--social-control{
